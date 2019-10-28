@@ -1,0 +1,123 @@
+wordnet (1:3.0-35) unstable; urgency=medium
+
+  * Team upload.
+  * debian/patches/01_tcltk8.6.patch: Switch to Tcl/Tk 8.6 from 8.5 since
+    the latter is to be removed from Debian.
+  * debian/patches/01_tcltk8.6.patch: Added -DUSE_INTERP_RESULT definition
+    to enable the respective struct field deprecated in Tcl 8.6.
+    Closes: #887867
+
+ -- Sergei Golovan <sgolovan@debian.org>  Sun, 21 Jan 2018 00:48:42 +0300
+
+wordnet (1:3.0-34) unstable; urgency=medium
+
+  * Moved packaging from SVN to Git
+  * stick to debhelper compat level 9 since >= 10 do not work with lex scripts
+  * Standards-Version: 4.1.3
+  * Drop old style menu file
+  * All packages (including wordnet-sense-index, wordnet-grind) Priority: optional
+  * Moved debian/upstream to debian/upstream/metadata
+  * hardening=+all
+  * Cleanup unused lintian overrides
+
+ -- Andreas Tille <tille@debian.org>  Thu, 11 Jan 2018 14:10:01 +0100
+
+wordnet (1:3.0-33) unstable; urgency=medium
+
+  * Use dh-autoreconf
+    Closes: #744680
+  * Add missing Build-Depends: ghostscript
+
+ -- Andreas Tille <tille@debian.org>  Thu, 17 Apr 2014 13:33:21 +0200
+
+wordnet (1:3.0-32) unstable; urgency=medium
+
+  * cme fix dpkg-control
+  * Enable building with ruby default (2.0) - thanks for the patch to
+    Antonio Terceiro <terceiro@debian.org>
+    Closes: #733110
+  * debian/copyright: DEP5
+  * debian/changelog.old_dict-wn: removed
+  * Remove redundant parts from long description
+    Closes: #736371
+  * Do not Build-Depend from imagemagick any more and simply provide the
+    BMP version of goldendict icon in the debian/ dir
+  * cdbs -> dh
+
+ -- Andreas Tille <tille@debian.org>  Tue, 28 Jan 2014 13:59:14 +0100
+
+wordnet (1:3.0-31) unstable; urgency=low
+
+  * debian/control: Add needed Breaks/Replaces (thanks for the patch to
+    Andreas Beckmann <anbe@debian.org>
+    Closes: #709153
+  * debian/rules: Use xz compression
+
+ -- Andreas Tille <tille@debian.org>  Thu, 23 May 2013 08:46:48 +0200
+
+wordnet (1:3.0-30) unstable; urgency=low
+
+  * debian/patches/51_overflows.patch: DEP3 comments (thanks again to
+    Anton Gladky for fixing this problem
+  * debian/patches: refreshed all patches
+  * debian/control:
+     - Removed (outdated) URL from description where those metadata
+       should not appear anyway
+       Closes: #696356
+     - deduplicated short descriptions
+     - Standards-Version: 3.9.4 (no changes needed)
+     - Debhelper 9
+     - normalised using `cme fix dpkg-control`
+  * Added wordnet.desktop and wn.png; install in wordnet-gui.install
+    Closes: #708583
+  * debian/{wordnet,wordnet-dev}.install: move libwordnet.so to -dev
+    package
+
+ -- Andreas Tille <tille@debian.org>  Fri, 17 May 2013 09:39:14 +0200
+
+wordnet (1:3.0-29) unstable; urgency=low
+
+  * Team upload.
+  * Fix index processing error in morphstr() function. 
+    Closes: #700914
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 26 Feb 2013 20:40:25 +0100
+
+wordnet (1:3.0-28) unstable; urgency=low
+
+  * debian/dict-wn.post{inst,rm}: verify start script using
+    "invoke-rc.d --query" first (thanks for the patch to
+    Ryo IGARASHI <rigarash@gmail.com>)
+    Closes: #675534, #673620
+  * debian/control: Explicitly Build-Depends ruby1.8
+  + debian/rules: Explicitly call ruby1.8 because there is some
+    difference in handling of strings and bytes in ruby 1.8 and
+    1.9 and the current script to build the goldendict package
+    fails with ruby 1.9
+    Closes: #676114
+
+ -- Andreas Tille <tille@debian.org>  Mon, 04 Jun 2012 13:27:27 +0200
+
+wordnet (1:3.0-27) unstable; urgency=low
+
+  * debian/watch: adapted to changed upstream website layout
+  * debian/upstream: add citation
+  * debian/control:
+     - Standards-Version: 3.9.3 (no changes needed)
+     - dict-wn: Only Recommends: dictd | dict-server
+       Closes: #673620
+  * debian/dict-wn.post{inst,rm}: Verify that init script really
+    exists
+    Closes: #607638
+
+ -- Andreas Tille <tille@debian.org>  Fri, 01 Jun 2012 13:45:40 +0200
+
+wordnet (1:3.0-26.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Remove build-dependency on gs-common (closes: #649712). It was unused
+    since 1:3.0-4. Thanks to Didier Raboud for the bug report.
+
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 13 Dec 2011 22:07:21 +0100
+
+# For older changelog entries, run 'apt-get changelog goldendict-wordnet'
